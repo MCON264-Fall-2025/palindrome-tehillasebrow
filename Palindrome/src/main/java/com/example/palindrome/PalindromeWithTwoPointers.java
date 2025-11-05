@@ -11,9 +11,24 @@ public final class PalindromeWithTwoPointers {
      * @throws IllegalArgumentException if s is null
      */
     public static boolean isPalindrome(String s) {
-        throw new IllegalArgumentException("Not implemented yet");
-    }
+        if (s == null) throw new IllegalArgumentException("Input cannot be null");
+        if (s.length() <= 1) return true;
 
+       s= normalize(s);
+        int left=0;
+        int right=s.length()-1;
+        while(left < right) {
+            if(s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+
+        }
+
+         return true;
+
+    }
     // package-private for testing if needed
     static String normalize(String s) {
         StringBuilder sb = new StringBuilder(s.length());
